@@ -16,6 +16,140 @@
 
 </head>
 <body>
-    
+
+    <footer>
+        <div class="container text-center">
+            <hr>
+            Project created on Web VueJS 2 - After School Classes Booking <p class="mt-2">By Harpal Singh - MDX University</p>
+        </div>
+    </footer>
+
+
+
+<script>
+    let MyStore = new Vue({
+        el:"#MyApp",
+        data:{
+            // Show Lessons or Checkout Visibility
+            showLessons: true,
+            SearchLesson:null,
+            AppSetting:{
+                Title: "After School Classes App",
+            },
+            // Getting Lessons from Lessons.js File
+            lessons: lessons,
+            // Added Cart
+            MyCart: {
+                count: 0,
+                // Created Lessons Array for cart items being added into. 
+                lessons: [],
+            },
+            checkoutOrder:{
+                name: "",
+                phone: 0
+            },
+            // For Search Input `
+            SearchItemsView: false,
+            sorted: ''
+        },
+        methods: {
+            // Search Keyup Function
+            OnKeyUpSearchBar: function() {
+                // Searching results visible true
+                this.SearchItemsView = true;
+            },
+            sortedProducts(sorted) {
+                // Sorting Lessons by Spaces Left
+                if(this.sorted === "b"){
+                    function compare(a, b) {
+                    
+                    if (a.spaces < b.spaces) return 1;
+                    if (a.spaces > b.spaces) return -1;
+                    return 0;
+                    }
+                    
+                    console.log(this.sorted);
+                    return this.lessons.sort(compare);
+                }else{
+                // Sorting Lessons by Price
+                    function compare(a, b) {
+                    if (a.price > b.price) return 1;
+                    if (a.price < b.price) return -1;
+                    return 0;
+                    }
+                    
+                    console.log(this.sorted);
+                    return this.lessons.sort(compare);
+                }
+            },
+            AddToCart: function (lesson) {
+                lesson.spaces -= 1;
+                this.MyCart.lessons.push(lesson.id);   
+            },
+            CartedItemSpacesCount(id) {
+            let count = 0;
+            for (let i = 0; i < this.MyCart.lessons.length; i++) {
+                if (this.MyCart.lessons[i] === id) {
+                count++;
+                }
+            }
+            return count;
+            },
+            // Checkout View Visibile True or False
+            showCheckout(){
+                this.showLessons = this.showLessons ? false : true;
+            },
+            // Check if Lesson Spaces Available
+            canAddToCart(lesson) {
+            return lesson.spaces > this.cartCount({id:lesson.id});
+            },
+            // How many spaces left of lesson count
+            itemsLeft(lesson){
+                return lesson.spaces - this.cartCount(lesson.id) ;
+            },
+            // Cart Items Counting and increment into count
+            cartCount(id) {
+            let count = 0;
+                for(let i = 0; i < this.MyCart.lessons.length; i++) {
+                    if (this.MyCart[i] === id) {
+                    count++;
+                    }
+                }
+                return count;
+            },
+            // Checkout Complete Alert
+            submitCheckoutForm() {
+                alert('Order submitted!');
+            },
+            // Removing Items From Cart 
+            RemoveCartItem(lesson){
+                for (let i = 0; i < this.MyCart.lessons.length; i++) {
+                    //Removing Specific ID
+                    if (this.MyCart.lessons[i] == lesson.id) {
+                    //deducting cart count and reverting spaces changes
+                    this.MyCart.lessons.splice(i, 1);
+                    lesson.spaces += 1;
+                    return
+                    }
+                }
+            }
+        },
+        computed: {
+            // Counting Items Count next to Checkout 
+            totalItemsInTheCart: function() {
+                return this.MyCart.lessons.length || "";
+            },
+            // Performing search filters in order to perform search
+            FilterLessons(){
+                if (!this.SearchLesson) return this.lessons
+                let SearchLesson = this.SearchLesson.toLowerCase()
+                return this.lessons.filter(l => {
+                    return l.subjectName.toLowerCase().includes(SearchLesson)
+                })
+            }
+            
+        }
+    })
+</script>
 </body>
 </html>

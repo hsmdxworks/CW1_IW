@@ -35,4 +35,58 @@ let lessons = [
         "spaces": 17,
         "currency": "£"
     },
+    { 
+        "id": 105,
+        "subjectImg": "images/book-english.png",
+        "subjectName": "English",
+        "location": "London",
+        "price": 111,
+        "spaces": 12,
+        "currency": "£"
+    },
+    { 
+        "id": 106,
+        "subjectImg": "images/book-bio.png",
+        "subjectName": "Biology",
+        "location": "London",
+        "price": 4,
+        "spaces": 13,
+        "currency": "£"
+    },
+    { 
+        "id": 107,
+        "subjectImg": "images/book-math.png",
+        "subjectName": "Mathematics",
+        "location": "London",
+        "price": 7,
+        "spaces": 2,
+        "currency": "£"
+    },
+    { 
+        "id": 108,
+        "subjectImg": "images/book-computer-science.png",
+        "subjectName": "Computer Science",
+        "location": "London",
+        "price": 14,
+        "spaces": 17,
+        "currency": "£"
+    },
+    { 
+        "id": 109,
+        "subjectImg": "images/book-computer-science.png",
+        "subjectName": "Computer Science",
+        "location": "London",
+        "price": 14,
+        "spaces": 17,
+        "currency": "£"
+    },
+    { 
+        "id": 110,
+        "subjectImg": "images/book-english.png",
+        "subjectName": "English",
+        "location": "London",
+        "price": 111,
+        "spaces": 12,
+        "currency": "£"
+    },
 ]

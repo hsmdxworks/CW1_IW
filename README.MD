@@ -1,4 +1,4 @@
-<h1 align="center"> Course work 1 - Individual Work </h1>
+# Course work 1 - Individual Work
 
 ### Publish Link
 https://hsmdxworks.github.io/CW1_IW/
@@ -6,9 +6,7 @@ https://hsmdxworks.github.io/CW1_IW/
 https://github.com/hsmdxworks/CW1_IW
 
 
-
-
-##### <span style="color:red;">Please Note:</span>
+##### *Please Note:*
 Previoud Parked here Github Pages.
 https://harpalsinghmdxuk.github.io/CW1VueWeb/
 

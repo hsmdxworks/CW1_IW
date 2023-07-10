@@ -1,4 +1,4 @@
-# Course work 1 - Individual Work
+<h1 align="center"> Course work 1 - Individual Work </h1>
 ### Publish Link
 https://hsmdxworks.github.io/CW1_IW/
 ### Repository Link
